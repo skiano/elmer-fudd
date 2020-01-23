@@ -33,5 +33,5 @@ test('should be real', {
   console.log(require('./magicNumber'));
   await pause(500);
   console.log(require('./magicNumber'));
-  assert.ok(isMagicNumber(12));
+  assert.ok(isMagicNumber(42));
 });
