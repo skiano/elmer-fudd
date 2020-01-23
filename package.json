@@ -1,0 +1,33 @@
+{
+  "name": "elmer-fudd",
+  "version": "1.0.0",
+  "description": "mini test runner + mocking",
+  "main": "lib/index.js",
+  "directories": {
+    "example": "example"
+  },
+  "dependencies": {
+    "pirates": "^4.0.1",
+    "stack-trace": "^0.0.10"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skiano/elmer-fudd.git"
+  },
+  "keywords": [
+    "testing",
+    "unit",
+    "tests",
+    "micro"
+  ],
+  "author": "Greg Skiano",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/skiano/elmer-fudd/issues"
+  },
+  "homepage": "https://github.com/skiano/elmer-fudd#readme"
+}
