@@ -22,9 +22,8 @@ const { test } = require('elmer-fudd');
 test('I’m hunting wabbits!', {
   unit: './Gun',
   mock: {
-    './Bullet': function FakeBullet(calliber) {
+    './Bullet': function FakeBullet() {
       this.isFake = true;
-      this.calliber = calliber;
     }
   }
 }, (Gun) => {
