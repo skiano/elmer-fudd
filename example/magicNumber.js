@@ -1,1 +1,1 @@
-exports.number = 42;
+module.exports = 42;

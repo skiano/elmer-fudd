@@ -1,7 +1,8 @@
 const assert = require('assert');
-const { test, run } = require('..');
+const { run } = require('..');
 
 async function main() {
+  require('./magicNumber.test');
   require('./isMagicNumber.test');
   const results = await run();
   console.log(results);
