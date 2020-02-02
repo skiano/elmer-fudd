@@ -1,8 +1,9 @@
-const assert = require('assert');
+const assert = require('assert').strict;
 const { test } = require('..');
 
-test('should equal 42', {
-  unit: './magicNumber',
-}, async (number) => {
-  assert.equal(number, 42, 'should equal 42');
-});
+test(
+  './magicNumber',
+  async (number) => {
+    assert.equal(number, 42, 'should equal 42');
+  }
+);
