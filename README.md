@@ -19,16 +19,13 @@ A test runner for smallish node projects with an opinionated take on mocking (an
 const assert = require('assert');
 const { test } = require('elmer-fudd');
 
-test('I’m hunting wabbits!', {
-  unit: './Gun',
-  mock: {
-    './Bullet': function FakeBullet() {
-      this.isFake = true;
-    }
-  }
-}, (Gun) => {
+test(
+  './gun'
+  ['./Bullet', function FakeBullet() {
+    this.isFake = true;
+  }],
+  async (Gun, FakeBullet) => {
   const gun = new Gun();
   assert.ok(gun.bullets[0].isFake, 'uses mock bullet!');
 });
 ```
-

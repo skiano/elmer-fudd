@@ -1,4 +1,3 @@
-const assert = require('assert');
 const { run } = require('..');
 
 async function main() {
