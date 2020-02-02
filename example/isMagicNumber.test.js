@@ -6,8 +6,8 @@ const pause = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 test(
   './isMagicNumber',
   ['./magicNumber', 14],
-  async (isMagicNumber, mocks) => {
-    console.log(mocks['./magicNumber']);
+  async (isMagicNumber, magicNumber) => {
+    console.log(magicNumber);
     await pause(500);
     assert.ok(isMagicNumber(14));
   }
