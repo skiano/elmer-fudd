@@ -1,5 +1,4 @@
-const assert = require('assert').strict;
-const { test } = require('..');
+const { test, assert } = require('..');
 
 test(
   './magicNumber',

@@ -1,5 +1,4 @@
-const assert = require('assert');
-const { test } = require('..');
+const { test, assert } = require('..');
 
 const pause = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
