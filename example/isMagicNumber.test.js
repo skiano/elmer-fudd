@@ -6,7 +6,7 @@ test(
   './isMagicNumber',
   ['./magicNumber', 14],
   async (isMagicNumber, magicNumber) => {
-    console.log(magicNumber);
+    // console.log(magicNumber);
     await pause(500);
     assert.ok(isMagicNumber(14));
   }
