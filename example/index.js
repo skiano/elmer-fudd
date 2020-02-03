@@ -6,7 +6,7 @@ async function main() {
   const results = await run({
     home: __dirname,
   });
-  console.log(results);
+  console.log(JSON.stringify(results, null, 2));
 }
 
 main().catch(e => {

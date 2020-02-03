@@ -18,6 +18,8 @@ test(
   async (isMagicNumber) => {
     await pause(500);
     assert.ok(isMagicNumber(12));
+    assert.ok(isMagicNumber(12));
+    // throw new Error('it threw!')
   }
 );
 
@@ -26,5 +28,9 @@ test(
   async (isMagicNumber) => {
     await pause(500);
     assert.ok(isMagicNumber(42));
+    // assert.deepEqual({ foo: 1 }, { foo: 2 });
+    // assert.throws(() => {
+    //   throw new Error('hello');
+    // })
   }
 );
