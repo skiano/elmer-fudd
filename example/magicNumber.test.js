@@ -2,7 +2,7 @@ const { test, assert } = require('..');
 
 test(
   './magicNumber',
-  async (number) => {
-    assert.equal(number, 42, 'should equal 42');
+  async function MyCoolTest(number) {
+    assert.equal(number, 41, 'should equal 42');
   }
 );
