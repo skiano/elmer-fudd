@@ -7,8 +7,9 @@
     "example": "example"
   },
   "dependencies": {
-    "pirates": "^4.0.1",
-    "stack-trace": "^0.0.10"
+    "kleur": "3.0.3",
+    "pirates": "4.0.1",
+    "stack-trace": "0.0.10"
   },
   "devDependencies": {},
   "scripts": {
