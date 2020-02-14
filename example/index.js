@@ -1,12 +1,14 @@
-const { run } = require('..');
+const { run, report } = require('..');
 
 async function main() {
   require('./magicNumber.test');
   require('./isMagicNumber.test');
+
   const results = await run({
     home: __dirname,
   });
-  console.log(JSON.stringify(results, null, 2));
+
+  report(results);
 }
 
 main().catch(e => {
