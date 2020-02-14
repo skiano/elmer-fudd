@@ -1,11 +1,14 @@
-const assert = require('assert');
-const { run } = require('..');
+const { run, report } = require('..');
 
 async function main() {
   require('./magicNumber.test');
   require('./isMagicNumber.test');
-  const results = await run();
-  console.log(results);
+
+  const results = await run({
+    home: __dirname,
+  });
+
+  report(results);
 }
 
 main().catch(e => {

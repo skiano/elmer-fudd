@@ -1,8 +1,22 @@
-const assert = require('assert');
-const { test } = require('..');
+const { test, assert } = require('..');
 
-test('should equal 42', {
-  unit: './magicNumber',
-}, async (number) => {
-  assert.equal(number, 42, 'should equal 42');
-});
+test(
+  './magicNumber',
+  async function MyCoolTest(number) {
+    assert.equal(number, 42, 'should equal 42');
+  }
+);
+
+test(
+  './magicNumber',
+  async function (number) {
+    assert.deepEqual({ foo: 1, bar: 2 }, { foo: 1 });
+  }
+);
+
+test(
+  './magicNumber',
+  (number) => {
+    assert.equal(number, 43, 'should equal 42');
+  }
+);

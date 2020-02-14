@@ -1,32 +1,34 @@
-const assert = require('assert');
-const { test } = require('..');
+const { test, name, assert } = require('..');
 
 const pause = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
-test('should equal 14', {
-  unit: './isMagicNumber',
-  mock: {
-    './magicNumber': 14,
+test(
+  './isMagicNumber',
+  ['./magicNumber', 14],
+  async (isMagicNumber, magicNumber) => {
+    name('Test 1');
+    // console.log(magicNumber);
+    await pause(500);
+    assert.ok(isMagicNumber(14));
   }
-}, async (isMagicNumber, mocks) => {
-  console.log(mocks);
-  await pause(500);
-  assert.ok(isMagicNumber(14));
-});
+);
 
-test('should equal 12', {
-  unit: './isMagicNumber',
-  mock: {
-    './magicNumber': 12,
+test(
+  './isMagicNumber',
+  ['./magicNumber', 12],
+  async (isMagicNumber) => {
+    name('Test 2');
+    await pause(500);
+    assert.ok(isMagicNumber(12));
+    assert.ok(isMagicNumber(12));
   }
-}, async (isMagicNumber) => {
-  await pause(500);
-  assert.ok(isMagicNumber(12));
-});
+);
 
-test('should be real', {
-  unit: './isMagicNumber',
-}, async (isMagicNumber) => {
-  await pause(500);
-  assert.ok(isMagicNumber(42));
-});
+test(
+  './isMagicNumber',
+  async (isMagicNumber) => {
+    name('Test 3');
+    await pause(500);
+    assert.ok(isMagicNumber(42));
+  }
+);
