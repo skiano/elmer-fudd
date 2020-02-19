@@ -14,7 +14,7 @@ test(
   './isMagicNumber',
   async (isMagicNumber) => {
     name('Test 2');
-    assert.ok(isMagicNumber(42));
+    assert.ok(isMagicNumber(43), 'should be 42');
   }
 );
 

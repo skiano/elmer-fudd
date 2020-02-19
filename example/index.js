@@ -6,6 +6,10 @@ async function main() {
 
   const results = await run({
     home: __dirname,
+    // aliases
+    // tests
+
+    // nyc?
   });
 
   report(results);
