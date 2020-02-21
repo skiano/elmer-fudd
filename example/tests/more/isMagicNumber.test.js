@@ -1,4 +1,4 @@
-const { test, name, assert } = require('..');
+const { test, name, assert } = require('../../../lib');
 
 test(
   './isMagicNumber',
@@ -26,3 +26,4 @@ test(
     assert.ok(isMagicNumber(14));
   }
 );
+

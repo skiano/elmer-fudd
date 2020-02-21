@@ -1,18 +1,25 @@
-const { run, report } = require('..');
+const path = require('path');
+const { locate, run, report } = require('..');
 
 async function main() {
-  require('./magicNumber.test');
-  require('./isMagicNumber.test');
+  // require('./magicNumber.test');
+  // require('./tests/isMagicNumber.test');
 
-  const results = await run({
-    home: __dirname,
-    // aliases
-    // tests
+  // const results = await run({
+  //   home: __dirname,
+  //   // aliases
+  //   // tests
 
-    // nyc?
+  //   // nyc?
+  // });
+
+  const tests = await locate({
+    root: path.join(__dirname, 'tests'),
+    ext: '.test.js',
   });
-
-  report(results);
+  
+  console.log(tests);
+  // report(results);
 }
 
 main().catch(e => {
