@@ -5,21 +5,24 @@ async function main() {
   // require('./magicNumber.test');
   // require('./tests/isMagicNumber.test');
 
-  // const results = await run({
-  //   home: __dirname,
-  //   // aliases
-  //   // tests
-
-  //   // nyc?
-  // });
+  
 
   const tests = await locate({
     root: path.join(__dirname, 'tests'),
     ext: '.test.js',
   });
-  
-  console.log(tests);
-  // report(results);
+
+  tests.forEach(require);
+
+  const results = await run({
+    home: __dirname,
+    // aliases
+    // tests
+
+    // nyc?
+  });
+
+  report(results);
 }
 
 main().catch(e => {
