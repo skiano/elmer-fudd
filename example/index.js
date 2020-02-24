@@ -1,5 +1,5 @@
 const path = require('path');
-const { locate, run, report } = require('..');
+const { run } = require('..');
 
 async function main() {
   await run({
