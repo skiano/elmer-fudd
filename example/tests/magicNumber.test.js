@@ -20,6 +20,6 @@ test({
 test({
   name: 'My super minimal example test',
   spec: () => {
-    assert.ok(true);
+    assert.ok(false);
   }
 });
