@@ -34,7 +34,7 @@ test({
 });
 
 test({
-  name: 'My first unit test with mocking'
+  name: 'My first unit test with mocking',
   unit: '@src/lib/unit',
   mock: [
     ['@src/lib/dep', { fake: true }]
