@@ -16,7 +16,7 @@ A test runner for smallish node projects with an opinionated take on mocking (an
 ### Examples
 
 ```javascript
-const { test, name, assert } = require('elmer-fudd');
+const { test, assert } = require('elmer-fudd');
 
 test({
   name: 'My super minimal example test',
