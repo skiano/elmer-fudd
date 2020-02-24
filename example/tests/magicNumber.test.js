@@ -1,4 +1,4 @@
-const { test, assert } = require('elmer-fudd');
+const { test, assert, name } = require('elmer-fudd');
 
 test(
   '@src/magicNumber',
@@ -10,6 +10,7 @@ test(
 test(
   '@src/magicNumber',
   async function () {
+    name('MY TEST IS GREAT!');
     assert.deepEqual({ foo: 1, bar: 2 }, { foo: 1 });
     assert.ok(true);
   }
