@@ -3,6 +3,7 @@ const { locate, run, report } = require('..');
 
 async function main() {
   const results = await run({
+    raw: true,
     ext: '.test.js',
     root: path.join(__dirname, 'tests'),
     alias: {
@@ -10,7 +11,7 @@ async function main() {
     },
   });
 
-  report(results);
+  console.log(results);
 }
 
 main().catch(e => {
