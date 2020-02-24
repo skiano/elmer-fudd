@@ -16,3 +16,10 @@ test({
     // assert.ok(true);
   }
 });
+
+test({
+  name: 'My super minimal example test',
+  spec: () => {
+    assert.ok(true);
+  }
+});
