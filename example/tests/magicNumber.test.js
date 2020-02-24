@@ -1,4 +1,4 @@
-const { test, assert } = require('../../lib/index');
+const { test, assert } = require('elmer-fudd');
 
 test(
   '@src/magicNumber',
