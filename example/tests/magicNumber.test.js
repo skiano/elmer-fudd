@@ -1,16 +1,18 @@
 const { test, assert } = require('elmer-fudd');
 
-test(
-  '@src/magicNumber',
-  async function MyCoolTest(number) {
+test({
+  name: 'My First Magic Number',
+  unit: '@src/magicNumber',
+  spec: async (number) => {
     assert.equal(number, 42, 'should equal 42');
   }
-);
+});
 
-test(
-  '@src/magicNumber',
-  async function () {
+test({
+  name: 'My Second Magic Number',
+  unit: '@src/magicNumber',
+  spec: async () => {
     assert.deepEqual({ foo: 1, bar: 2 }, { foo: 1 });
-    assert.ok(true);
+    // assert.ok(true);
   }
-);
+});
