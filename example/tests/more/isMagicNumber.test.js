@@ -20,12 +20,12 @@ test({
 });
 
 test({
-  name: 'Test Mocked 14',
+  name: 'Test Mocked is available',
   unit: '@src/isMagicNumber',
   mock: [
     ['@src/magicNumber', 14],
   ],
-  spec: (isMagicNumber) => {
-    assert.ok(isMagicNumber(14));
+  spec: (_, [magicNumber]) => {
+    assert.equal(magicNumber, 14);
   }
 });
