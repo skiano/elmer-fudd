@@ -13,7 +13,34 @@ A test runner for smallish node projects with an opinionated take on mocking (an
 |`pirates`| for patching require |
 |`stack-trace`| for identifying call sites |
 
-### Examples
+### Example
+
+Assuming you have a project structured like so:
+
+```
+package.json
+src/
+  double.js
+test/
+  double.test.js
+```
+
+In your package json you could add:
+
+```json
+{
+  "elmer-fudd": {
+    "ext": "test.js",
+    "root": "test",
+    "alias": {
+      "@src": "src"
+    }
+  },
+  "scripts": {
+    "test": "elmer-fudd"
+  },
+}
+```
 
 ```javascript
 const { test, assert } = require('elmer-fudd');
