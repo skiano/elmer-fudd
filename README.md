@@ -11,9 +11,7 @@ A test runner for smallish node projects with an opinionated take on mocking and
 
 </div></details>
 
-## Example Project
-
-Assuming you have a project structured like so:
+## Minimal Example Project
 
 ```
 package.json
@@ -23,8 +21,6 @@ src/
 test/
   multiply.test.js
 ```
-
-Your code could look like the following:
 
 <details><summary><strong>package.json</strong></summary><div>
   
