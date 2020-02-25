@@ -102,7 +102,34 @@ test({
 
 `test` takes a “test object” as an input, which allows you to specify a name, the unit you wish to test, any mocks you want to provide for dependencies, and a “spec” that runs assertions. Below are a few examples to get you started:
 
-_TODO examples that build..._
+<details><summary>Test with just a spec</summary><div>
+  
+```javascript
+const { test, assert } = require('elmer-fudd');
+
+test({
+  name: 'Test with just a spec',
+  spec: () => {
+    assert.ok(true);
+  }
+});
+```
+</div></details>
+
+<details><summary>Testing a unit</summary><div>
+  
+```javascript
+const { test, assert } = require('elmer-fudd');
+
+test({
+  name: 'Test with just a spec',
+  unit: './path/to/double.js'
+  spec: (double) => {
+    assert.equal(double(2), 4);
+  }
+});
+```
+</div></details>
 
 ### assert
 
