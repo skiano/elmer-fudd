@@ -118,8 +118,8 @@ _TODO examples that build..._
 const { mockFn } = require('elmer-fudd');
 
 const fn = mockFn();
-fn(true)
-fn(false)
+fn(true);
+fn(false);
 // fn.calls is now `[[true], [false]]
 ```
 
