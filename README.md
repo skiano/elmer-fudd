@@ -22,7 +22,7 @@ test/
   multiply.test.js
 ```
 
-<details><summary><strong>package.json</strong></summary><div>
+<details><summary>package.json</summary><div>
   
 ```json
 {
@@ -41,7 +41,7 @@ test/
 
 </div></details>
 
-<details><summary><strong>src/multiply.js</strong></summary><div>
+<details><summary>src/multiply.js</summary><div>
   
 ```javascript
 const scale = require('./scale');
@@ -50,7 +50,7 @@ module.exports = (value) => value * scale;
 
 </div></details>
 
-<details><summary><strong>src/scale.js</strong></summary><div>
+<details><summary>src/scale.js</summary><div>
   
 ```javascript
 module.exports = 10;
@@ -60,7 +60,7 @@ module.exports = 10;
 
 </div></details>
 
-<details><summary><strong>test/multiply.test.js</strong></summary><div>
+<details><summary>test/multiply.test.js</summary><div>
   
 ```javascript
 const { test, assert } = require('elmer-fudd');
@@ -85,3 +85,23 @@ test({
 });
 
 ```
+
+</div></details>
+
+## Testing Api
+
+### test
+
+`test()` takes a “test object” as an input, which allows you to specify a name, the unit you wish to test, any mocks you want to provide for dependencies, and a “spec” that runs assertions. Below are a few examples to get you started:
+
+_TODO examples that build..._
+
+### assert
+
+`assert` wraps node’s core `assert.strict` library so that failures can be grouped with tests. For detailed information [see the docs](https://nodejs.org/api/assert.html). Here are a few examples to give you some ideas:
+
+_TODO examples that build..._
+
+### mockFn
+
+`mockFn` is a helper for creating simple spies. It is not as comprehensive as `jest.fn()`, but if you need something more robust there is no reason you cannot use something like [sinon](https://sinonjs.org/) instead.
