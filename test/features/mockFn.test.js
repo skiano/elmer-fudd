@@ -3,8 +3,7 @@ const { test, assert, mockFn } = require('elmer-fudd');
 test({
   name: 'mockFn.returns',
   spec: () => {
-    const mock = mockFn();
-    mock.returns('abc');
+    const mock = mockFn().returns('abc');
     assert.equal(mock(), 'abc');
   }
 });
@@ -12,8 +11,7 @@ test({
 test({
   name: 'mockFn.implementation',
   spec: () => {
-    const mock = mockFn();
-    mock.implementation((a, b) => a + b);
+    const mock = mockFn().implementation((a, b) => a + b);
     assert.equal(mock(1, 2), 3);
   }
 });
@@ -35,8 +33,7 @@ test({
 test({
   name: 'mockFn.throws',
   spec: () => {
-    const mock = mockFn();
-    mock.throws(new Error('poo'));
+    const mock = mockFn().throws(new Error('poo'));
     assert.throws(mock, new Error('poo'));
   }
 });
@@ -44,8 +41,7 @@ test({
 test({
   name: 'mockFn.rejects',
   spec: async () => {
-    const mock = mockFn();
-    mock.rejects(new Error('poo'));
+    const mock = mockFn().rejects(new Error('poo'));
     await assert.rejects(mock, new Error('poo'));
   }
 });
@@ -53,8 +49,7 @@ test({
 test({
   name: 'mockFn.resolves',
   spec: async () => {
-    const mock = mockFn();
-    mock.resolves(123);
+    const mock = mockFn().resolves(123);
     const v = await mock();
     assert.equal(v, 123);
   }
