@@ -2,18 +2,20 @@
 
 _Hunt for Bugs!_
 
-### What is it?
+## What is it?
 
 A test runner for smallish node projects with an opinionated take on mocking (and _very_ few dependencies).
 
-### Dependencies
-
+<details><summary><strong>Dependencies</strong></summary><div>
+  
 |Package|Why|
 |:------|:--|
 |`pirates`| for patching require |
 |`stack-trace`| for identifying call sites |
 
-### Example Project
+</div></details>
+
+## Example Project
 
 Assuming you have a project structured like so:
 
