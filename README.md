@@ -112,7 +112,18 @@ _TODO examples that build..._
 
 ### mockFn
 
-`mockFn` returns a mock function you can use in your specs. It is not a comprehensive solution, but if you need something more robust there is no reason you cannot use something like [sinon](https://sinonjs.org/) instead. Mock functions have the following methods and properties
+`mockFn` returns a mock function you can use in your specs. Here is how you might use a mock function.
+
+```javascript
+const { mockFn } = require('elmer-fudd');
+
+const fn = mockFn();
+fn(true)
+fn(false)
+// fn.calls is now `[[true], [false]]
+```
+
+It is not a comprehensive solution, but if you need something more robust there is no reason you cannot use something like [sinon](https://sinonjs.org/) instead. Mock functions have the following methods and properties:
 
 * `fn.returns(value)` makes the mock return a specific value
 * `fn.implementation(fn)` adds an implementation to the mock
