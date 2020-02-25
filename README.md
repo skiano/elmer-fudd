@@ -13,20 +13,22 @@ A test runner for smallish node projects with an opinionated take on mocking (an
 |`pirates`| for patching require |
 |`stack-trace`| for identifying call sites |
 
-### Example
+### Example Project
 
 Assuming you have a project structured like so:
 
 ```
 package.json
 src/
-  double.js
+  multiply.js
+  scale.js
 test/
-  double.test.js
+  multiply.test.js
+  scale.test.js
 ```
 
-In your package json you could add:
-
+<details><summary><strong>package.json</strong></summary><div>
+  
 ```json
 {
   "elmer-fudd": {
@@ -42,33 +44,49 @@ In your package json you could add:
 }
 ```
 
+</div></details>
+
+<details><summary><strong>src/multiply.js</strong></summary><div>
+  
+```javascript
+const scale = require('./scale');
+module.exports = (value) => value * scale;
+```
+
+</div></details>
+
+<details><summary><strong>src/scale.js</strong></summary><div>
+  
+```javascript
+module.exports = 10;
+```
+
+</div></details>
+
+</div></details>
+
+<details><summary><strong>test/multiply.test.js</strong></summary><div>
+  
 ```javascript
 const { test, assert } = require('elmer-fudd');
 
 test({
-  name: 'My super minimal example test',
-  spec: () => {
-    assert.ok(true);
+  name: 'Multiply without mocking',
+  unit: '@src/multiply',
+  spec: (multiply) => {
+    assert.equal(multiply(5), 50);
   }
 });
 
 test({
-  name: 'My unit test without any mocks',
-  unit: '@src/lib/unit',
-  spec: (unit) => {
-    assert.ok(unit);
-  }
-});
-
-test({
-  name: 'My first unit test with mocking',
-  unit: '@src/lib/unit',
+  name: 'Multiply with mocked scale',
+  unit: '@src/multiply',
   mock: [
-    ['@src/lib/dep', { fake: true }]
+    ['@src/scale', 2]
   ],
-  spec: (unit, [dep]) => {
-    assert.ok(unit);
-    assert.ok(dep.fake);
-  },
+  spec: (multiply) => {
+    assert.equal(multiply(5), 10);
+  }
 });
+
 ```
