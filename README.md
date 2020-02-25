@@ -16,35 +16,32 @@ A test runner for smallish node projects with an opinionated take on mocking (an
 ### Examples
 
 ```javascript
-const { test, name, assert } = require('elmer-fudd');
+const { test, assert } = require('elmer-fudd');
 
-
-// Minimal test
-test(() => { assert.ok(true); });
-
-// Testing a unit without mocking
-test('@src/lib/unit', (unit) => {
-  assert.ok(unit);
+test({
+  name: 'My super minimal example test',
+  spec: () => {
+    assert.ok(true);
+  }
 });
 
-// Testing a unit with mocking
-test(
-  '@src/lib/unit',
-  ['@src/lib/dep', { fake: true }],
-  (unit, dep) => {
+test({
+  name: 'My unit test without any mocks',
+  unit: '@src/lib/unit',
+  spec: (unit) => {
+    assert.ok(unit);
+  }
+});
+
+test({
+  name: 'My first unit test with mocking',
+  unit: '@src/lib/unit',
+  mock: [
+    ['@src/lib/dep', { fake: true }]
+  ],
+  spec: (unit, [dep]) => {
     assert.ok(unit);
     assert.ok(dep.fake);
-  }
-);
-
-// Giving tests a name
-test(
-  '@src/lib/unit',
-  ['@src/lib/mocked', { fake: true }],
-  (unit, mocked) => {
-    name('My test name...'); // <-- add a name
-    assert.ok(unit);
-    assert.ok(mocked.fake);
-  }
-);
+  },
+});
 ```
