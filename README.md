@@ -118,9 +118,10 @@ _TODO examples that build..._
 const { mockFn } = require('elmer-fudd');
 
 const fn = mockFn();
-fn(true);
-fn(false);
-// fn.calls is now `[[true], [false]]
+
+fn.returns(2);
+
+fn(); // returns 2
 ```
 
 It is not a comprehensive solution, but if you need something more robust there is no reason you cannot use something like [sinon](https://sinonjs.org/) instead. Mock functions have the following methods and properties:
