@@ -104,4 +104,4 @@ _TODO examples that build..._
 
 ### mockFn
 
-`mockFn` is a helper for creating simple spies. It is not as comprehensive as `jest.fn()`, but if you need something more robust there is no reason you cannot use something like [sinon](https://sinonjs.org/) instead.
+`mockFn()` returns a mock function you can use in your specs. It is not a comprehensive solution, but if you need something more robust there is no reason you cannot use something like [sinon](https://sinonjs.org/) instead.
