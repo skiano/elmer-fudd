@@ -12,11 +12,7 @@
   },
   "devDependencies": {},
   "elmer-fudd": {
-    "ext": "test.js",
-    "root": "example",
-    "alias": {
-      "@src": "example/src"
-    }
+    "root": "test"
   },
   "scripts": {
     "test": "node bin"

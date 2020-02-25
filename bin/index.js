@@ -6,7 +6,11 @@ const { run } = require('../lib');
 const fromCwd = p => path.join(process.cwd(), p);
 
 const pkg = require(fromCwd('package.json'));
-const options = pkg['elmer-fudd'];
+
+const options = Object.assign({
+  ext: '.js',
+  root: 'test',
+}, pkg['elmer-fudd']);
 
 if (options.alias) {
   for (let a in options.alias) {
