@@ -116,14 +116,32 @@ test({
 ```
 </div></details>
 
-<details><summary>Testing a unit</summary><div>
+<details><summary>Unit testing a module</summary><div>
   
 ```javascript
 const { test, assert } = require('elmer-fudd');
 
 test({
-  name: 'Test with just a spec',
+  name: 'Unit testing a module',
   unit: './path/to/double.js'
+  spec: (double) => {
+    assert.equal(double(2), 4);
+  }
+});
+```
+</div></details>
+
+<details><summary>Unit testing a module with mocked dependencies</summary><div>
+  
+```javascript
+const { test, assert } = require('elmer-fudd');
+
+test({
+  name: 'Unit testing a module',
+  unit: './path/to/unit.js',
+  mock: [
+    ['.path', { fake: true }],
+  ],
   spec: (double) => {
     assert.equal(double(2), 4);
   }
