@@ -1,5 +1,7 @@
 # elmer-fudd
 
+![Elmer Fudd hunting](https://gph.is/2EY1KDC)
+
 A test runner for smallish node projects with an opinionated take on mocking and _very_ few dependencies. It helps you hunt for Bugs... get it?
 
 <details><summary><strong>Dependencies</strong></summary><div>
