@@ -21,7 +21,7 @@
   "scripts": {
     "test": "node bin",
     "preversion": "npm run test",
-    "prepublish": "npm run test",
+    "prepublish": "npm run test"
   },
   "repository": {
     "type": "git",
