@@ -112,4 +112,15 @@ _TODO examples that build..._
 
 ### mockFn
 
-`mockFn` returns a mock function you can use in your specs. It is not a comprehensive solution, but if you need something more robust there is no reason you cannot use something like [sinon](https://sinonjs.org/) instead.
+`mockFn` returns a mock function you can use in your specs. It is not a comprehensive solution, but if you need something more robust there is no reason you cannot use something like [sinon](https://sinonjs.org/) instead. Mock functions have the following methods and properties
+
+* `fn.returns(value)` makes the mock return a specific value
+* `fn.implementation(fn)` adds an implementation to the mock
+* `fn.implementation(fn)` adds an implementation to the mock
+* `fn.calledWith(...args)` returns true if the mock has been called with these args
+* `fn.throws(err)` when the mock is called, this error is thrown
+* `fn.resolves(value)` the mock returns a promise that resolves this value
+* `fn.rejects(err)` the mock returns a promise that rejects with this err
+* `fn.reset()` resets the mock function
+* `fn.calls` a getter that returns all the calls
+* `fn.count` a getter that returns how many times the mock has been called
