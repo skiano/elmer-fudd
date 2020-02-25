@@ -18,5 +18,3 @@ addHook(
     } 
   }
 );
-
-console.log('hook added');
