@@ -116,7 +116,6 @@ _TODO examples that build..._
 
 * `fn.returns(value)` makes the mock return a specific value
 * `fn.implementation(fn)` adds an implementation to the mock
-* `fn.implementation(fn)` adds an implementation to the mock
 * `fn.calledWith(...args)` returns true if the mock has been called with these args
 * `fn.throws(err)` when the mock is called, this error is thrown
 * `fn.resolves(value)` the mock returns a promise that resolves this value
