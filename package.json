@@ -22,7 +22,8 @@
   "scripts": {
     "test": "node bin",
     "preversion": "npm run test",
-    "prepublish": "npm run test"
+    "prepublish": "npm run test",
+    "postpublish": "git push origin master --tags",
   },
   "repository": {
     "type": "git",
