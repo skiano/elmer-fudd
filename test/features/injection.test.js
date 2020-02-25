@@ -49,3 +49,17 @@ test({
     assert.deepEqual(foo(10), { value: 10, bar: 5 });
   }
 });
+
+test({
+  name: 'can mock a node module',
+  mock: [
+    ['stack-trace', {
+      get: mockFn(),
+    }],
+  ],
+  spec: (_, [stackTrace]) => {
+    stackTrace.get.returns({ isStack: true });
+    assert.deepEqual(stackTrace.get(), { isStack: true });
+  }
+});
+

@@ -12,6 +12,7 @@
   },
   "devDependencies": {},
   "elmer-fudd": {
+    "ext": "test.js",
     "root": "test",
     "alias": {
       "@stubs": "test/stubs"

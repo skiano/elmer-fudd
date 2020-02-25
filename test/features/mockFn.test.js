@@ -22,7 +22,7 @@ test({
   name: 'mockFn.calledWith',
   spec: () => {
     const mock = mockFn();
-    mock(345, 567)
+    mock(345, 567);
     mock(123);
     mock([1, 2]);
     assert.ok(mock.calledWith(123));
