@@ -92,7 +92,7 @@ test({
 
 ### test
 
-`test()` takes a “test object” as an input, which allows you to specify a name, the unit you wish to test, any mocks you want to provide for dependencies, and a “spec” that runs assertions. Below are a few examples to get you started:
+`test` takes a “test object” as an input, which allows you to specify a name, the unit you wish to test, any mocks you want to provide for dependencies, and a “spec” that runs assertions. Below are a few examples to get you started:
 
 _TODO examples that build..._
 
@@ -104,4 +104,4 @@ _TODO examples that build..._
 
 ### mockFn
 
-`mockFn()` returns a mock function you can use in your specs. It is not a comprehensive solution, but if you need something more robust there is no reason you cannot use something like [sinon](https://sinonjs.org/) instead.
+`mockFn` returns a mock function you can use in your specs. It is not a comprehensive solution, but if you need something more robust there is no reason you cannot use something like [sinon](https://sinonjs.org/) instead.
