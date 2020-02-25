@@ -27,6 +27,8 @@ test/
   scale.test.js
 ```
 
+Your code could look like the following:
+
 <details><summary><strong>package.json</strong></summary><div>
   
 ```json
