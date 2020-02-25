@@ -11,6 +11,12 @@ A test runner for smallish node projects with an opinionated take on mocking and
 
 </div></details>
 
+## Installation
+
+```
+$ npm install elmer-fudd
+```
+
 ## Minimal Example Project
 
 ```
