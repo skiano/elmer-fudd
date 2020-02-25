@@ -1,6 +1,6 @@
 # elmer-fudd
 
-![Elmer Fudd hunting](https://media.giphy.com/media/3oFzmpOB6IYecRY5eo/giphy.gif)
+<!-- ![Elmer Fudd hunting](https://media.giphy.com/media/3oFzmpOB6IYecRY5eo/giphy.gif) -->
 
 A test runner for smallish node projects with an opinionated take on mocking and _very_ few dependencies. It helps you hunt for Bugs... get it?
 
