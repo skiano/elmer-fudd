@@ -12,7 +12,10 @@
   },
   "devDependencies": {},
   "elmer-fudd": {
-    "root": "test"
+    "root": "test",
+    "alias": {
+      "@stubs": "test/stubs"
+    }
   },
   "scripts": {
     "test": "node bin"
