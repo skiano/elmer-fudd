@@ -24,7 +24,6 @@ src/
   scale.js
 test/
   multiply.test.js
-  scale.test.js
 ```
 
 Your code could look like the following:
