@@ -1,21 +1,25 @@
 # elmer-fudd
 
-_Hunt for Bugs!_
+<!-- ![Elmer Fudd hunting](https://media.giphy.com/media/3oFzmpOB6IYecRY5eo/giphy.gif) -->
 
-### What is it?
+A test runner for smallish node projects with an opinionated take on mocking and _very_ few dependencies. It helps you hunt for Bugs... get it?
 
-A test runner for smallish node projects with an opinionated take on mocking (and _very_ few dependencies).
-
-### Dependencies
-
+<details><summary><strong>Dependencies</strong></summary><div>
+  
 |Package|Why|
 |:------|:--|
 |`pirates`| for patching require |
 |`stack-trace`| for identifying call sites |
 
-### Example Project
+</div></details>
 
-Assuming you have a project structured like so:
+## Installation
+
+```
+$ npm install elmer-fudd
+```
+
+## Minimal Example Project
 
 ```
 package.json
@@ -26,9 +30,7 @@ test/
   multiply.test.js
 ```
 
-Your code could look like the following:
-
-<details><summary><strong>package.json</strong></summary><div>
+<details><summary>package.json</summary><div>
   
 ```json
 {
@@ -47,7 +49,7 @@ Your code could look like the following:
 
 </div></details>
 
-<details><summary><strong>src/multiply.js</strong></summary><div>
+<details><summary>src/multiply.js</summary><div>
   
 ```javascript
 const scale = require('./scale');
@@ -56,7 +58,7 @@ module.exports = (value) => value * scale;
 
 </div></details>
 
-<details><summary><strong>src/scale.js</strong></summary><div>
+<details><summary>src/scale.js</summary><div>
   
 ```javascript
 module.exports = 10;
@@ -66,7 +68,7 @@ module.exports = 10;
 
 </div></details>
 
-<details><summary><strong>test/multiply.test.js</strong></summary><div>
+<details><summary>test/multiply.test.js</summary><div>
   
 ```javascript
 const { test, assert } = require('elmer-fudd');
@@ -91,3 +93,90 @@ test({
 });
 
 ```
+
+</div></details>
+
+## Testing Api
+
+### test
+
+`test` takes a “test object” as an input, which allows you to specify a name, the unit you wish to test, any mocks you want to provide for dependencies, and a “spec” that runs assertions. Below are a few examples to get you started:
+
+<details><summary>Test with just a spec</summary><div>
+  
+```javascript
+const { test, assert } = require('elmer-fudd');
+
+test({
+  name: 'Test with just a spec',
+  spec: () => {
+    assert.ok(true);
+  }
+});
+```
+</div></details>
+
+<details><summary>Unit testing a module</summary><div>
+  
+```javascript
+const { test, assert } = require('elmer-fudd');
+
+test({
+  name: 'Unit testing a module',
+  unit: './path/to/double.js'
+  spec: (double) => {
+    assert.equal(double(2), 4);
+  }
+});
+```
+</div></details>
+
+<details><summary>Unit testing a module with mocked dependencies</summary><div>
+  
+```javascript
+const { test, assert } = require('elmer-fudd');
+
+test({
+  name: 'Unit testing a module',
+  unit: './path/to/unit.js',
+  mock: [
+    ['.path', { fake: true }],
+  ],
+  spec: (double) => {
+    assert.equal(double(2), 4);
+  }
+});
+```
+</div></details>
+
+### assert
+
+`assert` wraps node’s core `assert.strict` library so that failures can be grouped with tests. For detailed information [see the docs](https://nodejs.org/api/assert.html). Here are a few examples to give you some ideas:
+
+_TODO examples that build..._
+
+### mockFn
+
+`mockFn` returns a mock function you can use in your specs. Here is how you might use a mock function.
+
+```javascript
+const { mockFn } = require('elmer-fudd');
+
+const fn = mockFn();
+
+fn.returns(2);
+
+fn(); // returns 2
+```
+
+It is not a comprehensive solution, but if you need something more robust there is no reason you cannot use something like [sinon](https://sinonjs.org/) instead. Mock functions have the following methods and properties:
+
+* `fn.returns(value)` makes the mock return a specific value
+* `fn.implementation(fn)` adds an implementation to the mock
+* `fn.calledWith(...args)` returns true if the mock has been called with these args
+* `fn.throws(err)` when the mock is called, this error is thrown
+* `fn.resolves(value)` the mock returns a promise that resolves this value
+* `fn.rejects(err)` the mock returns a promise that rejects with this err
+* `fn.reset()` resets the mock function
+* `fn.calls` a getter that returns all the calls
+* `fn.count` a getter that returns how many times the mock has been called
