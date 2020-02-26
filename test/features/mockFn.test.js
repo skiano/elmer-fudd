@@ -17,6 +17,31 @@ test({
 });
 
 test({
+  name: 'mockFn.will (multiple)',
+  spec: () => {
+    const mock = mockFn().will([
+      { given: ['foo', { state: true }], output: 'foo is true' },
+      { given: ['bar', { state: false }], output: 'bar is false' }
+    ]);
+    assert.equal(mock('foo', { state: true }), 'foo is true');
+    assert.equal(mock('bar', { state: false }), 'bar is false');
+    assert.equal(mock('bar', {}), undefined);
+  }
+});
+
+test({
+  name: 'mockFn.will (single)',
+  spec: () => {
+    const mock = mockFn().will({
+      given: [1, 2, 3, 4, 5],
+      output: 10001,
+    });
+    assert.equal(mock(1, 2, 3, 4, 5), 10001);
+    assert.equal(mock(1, 2, 3, 4, 5, 6), undefined);
+  }
+});
+
+test({
   name: 'mockFn.calledWith',
   spec: () => {
     const mock = mockFn();
