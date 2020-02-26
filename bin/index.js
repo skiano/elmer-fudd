@@ -18,8 +18,6 @@ if (options.alias) {
   }
 }
 
-run({
-  ext: options.ext,
-  root: fromCwd(options.root),
-  alias: options.alias,
-});
+options.root = fromCwd(options.root);
+
+run(options);
