@@ -5,7 +5,7 @@
 A test runner for smallish node projects with an opinionated take on mocking and _very_ few dependencies. It helps you hunt for Bugs... get it?
 
 <details><summary><strong>Dependencies</strong></summary><div>
-  
+
 |Package|Why|
 |:------|:--|
 |`pirates`| for patching require |
@@ -31,7 +31,7 @@ test/
 ```
 
 <details><summary>package.json</summary><div>
-  
+
 ```json
 {
   "elmer-fudd": {
@@ -50,7 +50,7 @@ test/
 </div></details>
 
 <details><summary>src/multiply.js</summary><div>
-  
+
 ```javascript
 const scale = require('./scale');
 module.exports = (value) => value * scale;
@@ -59,7 +59,7 @@ module.exports = (value) => value * scale;
 </div></details>
 
 <details><summary>src/scale.js</summary><div>
-  
+
 ```javascript
 module.exports = 10;
 ```
@@ -69,7 +69,7 @@ module.exports = 10;
 </div></details>
 
 <details><summary>test/multiply.test.js</summary><div>
-  
+
 ```javascript
 const { test, assert } = require('elmer-fudd');
 
@@ -103,7 +103,7 @@ test({
 `test` takes a “test object” as an input, which allows you to specify a name, the unit you wish to test, any mocks you want to provide for dependencies, and a “spec” that runs assertions. Below are a few examples to get you started:
 
 <details><summary>Test with just a spec</summary><div>
-  
+
 ```javascript
 const { test, assert } = require('elmer-fudd');
 
@@ -117,7 +117,7 @@ test({
 </div></details>
 
 <details><summary>Unit testing a module</summary><div>
-  
+
 ```javascript
 const { test, assert } = require('elmer-fudd');
 
@@ -132,7 +132,7 @@ test({
 </div></details>
 
 <details><summary>Unit testing a module with mocked dependencies</summary><div>
-  
+
 ```javascript
 const { test, assert } = require('elmer-fudd');
 
@@ -145,6 +145,22 @@ test({
   spec: (double) => {
     assert.equal(double(2), 4);
   }
+});
+```
+</div></details>
+
+<details><summary>Unit testing a module with a spec object</summary><div>
+
+```javascript
+const { test, assert } = require('elmer-fudd');
+
+test({
+  name: 'Using a spec object',
+  unit: './path/to/sum.js',
+  spec: [
+    { given: [1, 2], expect: 3 },
+    { given: [1, 2, 3], expect: 6 },
+  ]
 });
 ```
 </div></details>
