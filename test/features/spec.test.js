@@ -5,7 +5,7 @@ test({
   unit: '@stubs/sum',
   spec: {
     given: [1, 2, 3],
-    expect: 6,
+    output: 6,
   }
 });
 
@@ -13,8 +13,8 @@ test({
   name: 'test.spec can be an array of objects',
   unit: '@stubs/sum',
   spec: [
-    { given: [1, 2, 3], expect: 6 },
-    { given: [10, 20], expect: 30 },
+    { given: [1, 2, 3], output: 6 },
+    { given: [10, 20], output: 30 },
   ]
 });
 
@@ -25,7 +25,7 @@ test({
     ['@stubs/operator', (a, b) => [...a, ...b]],
   ],
   spec: [
-    { given: [[1, 2], [3, 4]], expect: [1, 2, 3, 4] },
+    { given: [[1, 2], [3, 4]], output: [1, 2, 3, 4] },
   ]
 });
 
@@ -40,8 +40,8 @@ test({
     }],
   ],
   spec: [
-    { given: [Promise.resolve(1), Promise.resolve(2)], expect: 3 },
-    { given: [Promise.resolve(3), Promise.resolve(2)], expect: 5 },
+    { given: [Promise.resolve(1), Promise.resolve(2)], output: 3 },
+    { given: [Promise.resolve(3), Promise.resolve(2)], output: 5 },
   ]
 });
 
@@ -57,7 +57,7 @@ test({
     ])]
   ],
   spec: [
-    { given: [2], expect: 4 },
-    { given: ['a', [1, 2]], expect: { crazy: true } },
+    { given: [2], output: 4 },
+    { given: ['a', [1, 2]], output: { crazy: true } },
   ],
 });

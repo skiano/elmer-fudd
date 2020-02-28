@@ -211,15 +211,13 @@ test({
   unit: './my-busted-fn',
   mock: [
     ['./my-busted-fn', mockFn().will([
-      { given: [2], outputs: 'foo' },
-      { given: [2, { extra: true }], outputs: { bar: 2 } },
+      { given: [2], output: 'foo' },
+      { given: [2, { extra: true }], output: { bar: 2 } },
     ])]
   ],
   spec: [
-    { given: [2], expect: 'foo' },
-    { given: [2, { extra: true }], expect: { bar: 2 } }
+    { given: [2], output: 'foo' },
+    { given: [2, { extra: true }], output: { bar: 2 } }
   ],
 })
 ```
-
-
