@@ -28,3 +28,19 @@ test({
     { given: [[1, 2], [3, 4]], expect: [1, 2, 3, 4] },
   ]
 });
+
+test({
+  name: 'test.spec can be async',
+  unit: '@stubs/sum',
+  mock: [
+    ['@stubs/operator', async (promiseA, promiseB) => {
+      const a = await promiseA;
+      const b = await promiseB;
+      return a + b;
+    }],
+  ],
+  spec: [
+    { given: [Promise.resolve(1), Promise.resolve(2)], expect: 3 },
+    { given: [Promise.resolve(3), Promise.resolve(2)], expect: 5 },
+  ]
+});
