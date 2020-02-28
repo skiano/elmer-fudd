@@ -196,3 +196,30 @@ It is not a comprehensive solution, but if you need something more robust there 
 * `fn.reset()` resets the mock function
 * `fn.calls` a getter that returns all the calls
 * `fn.count` a getter that returns how many times the mock has been called
+
+## Tips & Tricks
+
+### Test driven?
+
+You are allowed to mock the unit itself, which pared with "spec objects" creates a neat way you can write tests first without annoying failures. Then when you want to try the real unit you can comment out the test.
+
+```javascript
+const { test, mockFn } = require('elmer-fudd')
+
+test({
+  name: 'test first?',
+  unit: './my-busted-fn',
+  mock: [
+    ['./my-busted-fn', mockFn().will([
+      { given: [2], outputs: 'foo' },
+      { given: [2, { extra: true }], outputs: { bar: 2 } },
+    ])]
+  ],
+  spec: [
+    { given: [2], expect: 'foo' },
+    { given: [2, { extra: true }], expect: { bar: 2 } }
+  ],
+})
+```
+
+
