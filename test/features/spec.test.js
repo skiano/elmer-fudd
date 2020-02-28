@@ -60,4 +60,4 @@ test({
     { given: [2], expect: 4 },
     { given: ['a', [1, 2]], expect: { crazy: true } },
   ],
-})
+});
